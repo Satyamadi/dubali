@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="gallery.css" />
+  <!-- <link rel="stylesheet" href="css.css" /> -->
+  <title>Private Pool</title>
+</head>
+
+<body>
+  <div class="carousel">
+    <div class="carousel__nav">
+      <span id="moveLeft" class="carousel__arrow">
+        <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
+        </svg>
+      </span>
+      <span id="moveRight" class="carousel__arrow">
+        <svg class="carousel__icon" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
+        </svg>
+      </span>
+    </div>
+    <div class="carousel-item carousel-item--1">
+      <div class="carousel-item__image" loading="lazy" style="background-image: url('img/dummy1.jpg')"></div>
+      <div class="carousel-item__info">
+        <div class="carousel-item__container">
+          <h2 class="carousel-item__subtitle">White Knight</h2>
+          <h1 class="carousel-item__title">Private Pool</h1>
+          <p class="carousel-item__description">
+            Experience elevated comfort with our Deluxe Room, thoughtfully designed for guests who value style, privacy,
+            and relaxation.
+          </p>
+          <a href="https://wa.me/6287865065079" class="carousel-item__btn">Book Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item carousel-item--2">
+      <div class="carousel-item__image" loading="lazy" style="background-image: url('img/dummy1.jpg')"></div>
+      <div class="carousel-item__info">
+        <div class="carousel-item__container">
+          <h2 class="carousel-item__subtitle">For Your Comfort</h2>
+          <h1 class="carousel-item__title">Room Features</h1>
+          <ul class="carousel-item__description">
+            <li>Spacious 35–45 m² private room</li>
+            <li>Premium king-size bed with high-thread-count linens</li>
+            <li>En-suite bathroom with hot rain shower & organic amenities</li>
+            <li>Private balcony or terrace with garden or pool view</li>
+            <li>Ambient lighting and modern tropical interior design</li>
+          </ul>
+          <a href="#" class="carousel-item__btn">Book Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item carousel-item--3">
+      <div class="carousel-item__image" loading="lazy" style="background-image: url('img/dummy1.jpg')"></div>
+      <div class="carousel-item__info">
+        <div class="carousel-item__container">
+          <h2 class="carousel-item__subtitle">Enjoy the Facilities</h2>
+          <h1 class="carousel-item__title">Facilities</h1>
+          <ul class="carousel-item__description">
+            <li>Free high-speed Wi-Fi</li>
+            <li>Smart TV with streaming access</li>
+            <li>Air conditioning & ceiling fan</li>
+            <li>Personal minibar and coffee/tea maker</li>
+            <li>Daily cleaning service</li>
+            <li>In-room safety box</li>
+          </ul>
+          <a href="https://wa.me/6287865065079" class="carousel-item__btn">Book Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item carousel-item--4">
+      <div class="carousel-item__image" loading="lazy" style="background-image: url('img/dummy1.jpg')"></div>
+      <div class="carousel-item__info">
+        <div class="carousel-item__container">
+          <h2 class="carousel-item__subtitle">More and More</h2>
+          <h1 class="carousel-item__title">Aditional Perks</h1>
+          <ul class="carousel-item__description">
+            <li>Welcome drink upon arrival</li>
+            <li>Complimentary breakfast for 2 guests</li>
+            <li>Access to villa’s infinity pool and lounge</li>
+            <li>Optional in-room spa services (by request)</li>
+            <li>24/7 concierge and room service</li>
+          </ul>
+          <a href="https://wa.me/6287865065079" class="carousel-item__btn">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="jquery-3.7.1.min.js"></script>
+<script>
+
+  //carousel----------------
+  $(function () {
+    $('.carousel-item').eq(0).addClass('active');
+    let total = $('.carousel-item').length;
+    let current = 0;
+    $('#moveRight').on('click', function () {
+      let next = current;
+      current = current + 1;
+      setSlide(next, current);
+    });
+    $('#moveLeft').on('click', function () {
+      let prev = current;
+      current = current - 1;
+      setSlide(prev, current);
+    });
+    function setSlide(prev, next) {
+      let slide = current;
+      if (next > total - 1) {
+        slide = 0;
+        current = 0;
+      }
+      if (next < 0) {
+        slide = total - 1;
+        current = total - 1;
+      }
+      $('.carousel-item').eq(prev).removeClass('active');
+      $('.carousel-item').eq(slide).addClass('active');
+      setTimeout(function () {
+
+      }, 800);
+
+
+
+      console.log('current ' + current);
+      console.log('prev ' + prev);
+    }
+  });
+</script>
+
+</html>
