@@ -44,3 +44,19 @@ document.addEventListener('mousemove', e => {
 
 
 
+//hambuger
+let hamburger = document.querySelector(".hamburger");
+
+let phoneNav = document.querySelectorAll(".phone-lists");
+
+document.addEventListener("click", (event) => {
+  if (event.target === hamburger) {
+    hamburger.classList.toggle("active");
+    
+    phoneNav.forEach((phone) => phone.classList.toggle("active"));
+  } else {
+    hamburger.classList.remove("active");
+    
+    phoneNav.forEach((phone) => phone.classList.remove("active"));
+  }
+});
